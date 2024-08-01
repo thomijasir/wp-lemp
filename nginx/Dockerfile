@@ -1,10 +1,10 @@
-FROM nginx:1.21.3-alpine
+FROM nginx:latest
 
-# COPY ./nginx/certs /etc/nginx/certs/
+COPY ./nginx/certs /etc/nginx/certs/
 COPY ./nginx/default.conf /etc/nginx/conf.d/
 
-COPY start.sh ~/
+COPY ./nginx/start.sh /
 
-RUN chmod +x ~/start.sh
+RUN chmod +x /start.sh
 
-CMD ~/start.sh
+CMD ./start.sh
